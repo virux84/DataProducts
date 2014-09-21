@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Elliptic Curves</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Elliptic Curves">
+  <meta name="author" content="">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/quiz/css/demo.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Elliptic Curves</h1>
+    <h2></h2>
+    <p><br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>What is an Elliptic Curve?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>In mathematics, an elliptic curve (EC) is a smooth, projective algebraic curve of genus one, on which there is a specified point O. An elliptic curve is in fact an abelian variety - that is, it has a multiplication defined algebraically, with respect to which it is a (necessarily commutative) group - and O serves as the identity element. Often the curve itself, without O specified, is called an elliptic curve.</p>
+
+<p>Any elliptic curve can be written as a plane algebraic curve defined by an equation of the form:</p>
+
+<pre><code>y^2 = x^3 + ax + b
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <article data-timings="">
+    <p>##Elliptic curves over the real numbers</p>
+
+<p>Any elliptic curve can be written as a plane algebraic curve defined by an equation of the form:</p>
+
+<pre><code>y^2 = x^3 + ax + b
+</code></pre>
+
+<p>which is non-singular; that is, its graph has no cusps or self-intersections. (When the characteristic of the coefficient field is equal to 2 or 3, the above equation is not quite general enough to comprise all non-singular cubic curves; see below for a more precise definition.) The point O is actually the &quot;point at infinity&quot; in the projective plane.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h3>Example</h3>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">f &lt;- function(x,y) x^3 - y^2 - 2*x +1
+x &lt;- y &lt;- seq(-10,10,length=100)
+z &lt;- outer(x,y,f)
+contour(x=x, y=x, z=z,levels=0, las=1, drawlabels=FALSE, lwd=3)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>The group law</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>By adding a &quot;point at infinity&quot;, we obtain the projective version of this curve. If P and Q are two points on the curve (i.e. their coordinates are solutions to the equation of the curve), then we can uniquely describe a third point which lies in the intersection of the curve with the line through P and Q. Usually there is a unique third point in the intersection (if the line is tangent to the curve at a point, then that point has to be counted twice; and if the line is parallel to the y-axis, we define the third point as the point &quot;at infinity&quot;).</p>
+
+<p>It is then possible to introduce a group operation, +, on the curve with the following properties: we consider the point at infinity to be 0, the identity of the group; and if a straight line intersects the curve at the points P, Q and R, then we require that P + Q + R = 0 in the group. One can check that this turns the curve into an abelian group, and thus into an abelian variety.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Question 1</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div class="quiz quiz-single well ">
+  <p>What is P + Q + 0 =?</p>
+
+<ol>
+<li>P</li>
+<li><em>0</em></li>
+<li>Q</li>
+<li>I don&#39;t know</li>
+</ol>
+
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear btn btn-danger">Clear</button>
+  
+  </div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='What is an Elliptic Curve?'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title=''>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Example'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='The group law'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Question 1'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  <script src="libraries/widgets/quiz/js/jquery.quiz.js"></script>
+<script src="libraries/widgets/quiz/js/mustache.min.js"></script>
+<script src="libraries/widgets/quiz/js/quiz-app.js"></script>
+
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
